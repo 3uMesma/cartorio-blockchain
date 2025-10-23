@@ -12,5 +12,10 @@
   "devDependencies": {
     "@types/node": "^24.9.1",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "ethers": "^6.15.0",
+    "fs": "^0.0.1-security"
   }
 }
