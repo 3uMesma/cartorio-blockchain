@@ -26,7 +26,7 @@ contract DocumentRegistry {
         // Registra Documento
         documents[_hash] = Document({
             timestamp: block.timestamp,
-            owner: mdg.sender, // nessa impelmentação o dono vai ser quem enviou a mensagem/arquivo
+            owner: msg.sender, // nessa impelmentação o dono vai ser quem enviou a mensagem/arquivo
             exists: true
         });
 
