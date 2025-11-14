@@ -7,6 +7,7 @@ export default createGlobalStyle`
         --cor-marrom-claro: #B59988;
         --cor-branca: #F2F2F2;
         --cor-preta: #2D2D2D;
+        --cor-cinza: #888888;
         --font-family: 'Nunito', sans-serif;
     }
     * {

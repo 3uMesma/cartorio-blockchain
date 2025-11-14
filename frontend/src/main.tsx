@@ -1,9 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './pages/App.tsx'
+
+import GlobalStyles from './GlobalStyles';
+import Header from '../src/components/header';
+import Home from './pages/home';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <GlobalStyles/>
+    <Header/>
+    <Home/>
   </StrictMode>,
 )
