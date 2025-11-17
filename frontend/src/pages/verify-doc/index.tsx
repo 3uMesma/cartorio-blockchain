@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import {Container, StatusMessage} from "./style";
-import { type UploadStatus, type UploadSuccessData } from '../../types/api';
+import { type VerifyStatus } from '../../types/api';
 
-export function DocRegistrar() {
+export function DocVerificar() {
   const [arquivo, setArquivo] = useState<File | null>(null);
-  const [status, setStatus] = useState<UploadStatus | null>(null);
+  const [status, setStatus] = useState<VerifyStatus | null>(null);
 
   // COLOCAR A REAL URL DO BACKEND
   const API_URL = 'http://localhost:3000';
+
+  // Calcula o hash SHA-256 de um arquivo no navegador
+  const calculateFileHash = async (file: File): Promise<string> => {
+    const buffer = await file.arrayBuffer();
+    const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return '0x' + hashHex;
+  }
 
   // Seleção do Arquivo do Input
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,40 +47,46 @@ export function DocRegistrar() {
     setStatus(null);
   };
 
-  // Envia o arquivo para o endpoint Register
-  const handleRegister = async () => {
+  // Calcula o hash e envia para o endpoint /verify
+  const handleVerify = async () => {
     if (!arquivo) {
       setStatus({ type: 'error', message: 'Nenhum arquivo selecionado.' });
       return;
     }
 
-    setStatus({ type: 'loading', message: 'Registrando... Por favor, aguarde.' });
-
-    const formData = new FormData();
-    // A chave 'documento' DEVE ser a mesma que o 'multer' espera no back-end (VERIFICAR ISSO)
-    formData.append('documento', arquivo);
+    setStatus({ type: 'loading', message: 'Calculando hash e verificando...' });
 
     try {
-      // Requisição POST
-      const response = await fetch(`${API_URL}/register`, {
-        method: 'POST',
-        body: formData,
+      // Calcular o hash no frontend
+      const hash = await calculateFileHash(arquivo);
+      // console.log('Hash calculado:', hash);
+
+      // Chamar o GET /verify/:hash
+      const response = await fetch(`${API_URL}/verify/${hash}`, {
+        method: 'GET',
       });
 
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || 'Erro desconhecido no servidor.');
+        if (response.status === 404) {
+          setStatus({
+            type: 'error',
+            message: result.error || 'Documento não encontrado.',
+          });
+        } else {
+          throw new Error(result.error || 'Erro desconhecido no servidor.');
+        }
+      } else {
+        setStatus({
+          type: 'success',
+          message: 'Documento encontrado e autêntico!',
+          data: result as any,
+        });
       }
 
-      setStatus({
-        type: 'success',
-        message: 'Documento registrado com sucesso!',
-        data: result as UploadSuccessData,
-      });
-
     } catch (err: any) {
-      console.error('Erro ao registrar:', err);
+      console.error('Erro ao verificar:', err);
       setStatus({
         type: 'error',
         message: err.message || 'Falha ao conectar com o servidor.',
@@ -81,9 +96,14 @@ export function DocRegistrar() {
 
   const isLoading = status?.type === 'loading';
 
+  const getTimestampFormatado = (isoDate: string) => {
+    const data = new Date(isoDate);
+    return data.toLocaleString('pt-BR');
+  }
+
   return (
     <Container>
-      <h2>Registrar Novo Documento</h2>
+      <h2>Verificar Autenticidade</h2>
 
       {!arquivo && (
         <label> 
@@ -110,11 +130,11 @@ export function DocRegistrar() {
       {/* O botão só é renderizado se 'arquivo' (o estado) existir */}
       {arquivo && (
         <button
-          className="register-button"
-          onClick={handleRegister}
-          disabled={!arquivo || isLoading}
+          className="register-button" 
+          onClick={handleVerify}
+          disabled={isLoading} 
         >
-          {isLoading ? 'Registrando...' : 'Registrar na Blockchain'}
+          {isLoading ? 'Verificando...' : 'Verificar Documento'}
         </button>
       )}
 
@@ -126,8 +146,8 @@ export function DocRegistrar() {
             <>
               <hr />
               <p><strong>Hash (SHA-256):</strong> {status.data.hash}</p>
-              <p><strong>ID da Transação:</strong> {status.data.transactionHash}</p>
               <p><strong>Registrado por:</strong> {status.data.owner}</p>
+              <p><strong>Data do Registro:</strong> {getTimestampFormatado(status.data.timestamp)}</p>
             </>
           )}
         </StatusMessage>

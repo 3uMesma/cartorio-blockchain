@@ -7,9 +7,9 @@ export default function Header() {
             <div className = "menu">
                 <li><a href="/how-to-use">COMO USAR</a></li>
                 <li>|</li>
-                <li><a href="/upload">SUBIR DOCUMENTO</a></li>
+                <li><a href="/upload/">SUBIR DOCUMENTO</a></li>
                 <li>|</li>
-                <li><a href="/check-document">VALIDAR DOCUMENTO</a></li>
+                <li><a href="/check/">VALIDAR DOCUMENTO</a></li>
             </div>
         </Container>
     )

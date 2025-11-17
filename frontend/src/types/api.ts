@@ -11,3 +11,16 @@ export interface UploadStatus {
   message: string;
   data?: UploadSuccessData;
 }
+
+export interface VerifySuccessData {
+  hash: string;
+  isRegistered: boolean;
+  owner: string;
+  timestamp: string;
+}
+
+export interface VerifyStatus {
+  type: 'success' | 'error' | 'loading';
+  message: string;
+  data?: VerifySuccessData;
+}

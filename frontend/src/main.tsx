@@ -6,6 +6,7 @@ import GlobalStyles from './GlobalStyles';
 import Header from '../src/components/header';
 import Home from './pages/home';
 import { DocRegistrar } from './pages/upload-doc';
+import { DocVerificar } from './pages/verify-doc';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,7 +15,8 @@ createRoot(document.getElementById('root')!).render(
       <Header/>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='upload' element={<DocRegistrar />} />
+        <Route path='upload/' element={<DocRegistrar />} />
+        <Route path='check/' element={<DocVerificar />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
