@@ -51,6 +51,17 @@ export const Container = styled.div`
         text-transform: uppercase;
         margin-top: 2rem;
     }
+
+    .status-area {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .status-title {
+        font-weight: 700;
+        color: var(--cor-marrom-main);
+        text-transform: uppercase;
+    }
 `;
 
 export const StatusMessage = styled.div<{ type: UploadStatus['type'] }>`

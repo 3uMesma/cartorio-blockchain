@@ -140,8 +140,8 @@ export function DocVerificar() {
 
       {/* Área de Feedback/Status */}
       {status && (
-        <StatusMessage type={status.type}>
-          <p>{status.message}</p>
+        <StatusMessage type={status.type} className='status-area'>
+          <p className='status-title'>{status.message}</p>
           {status.type === 'success' && status.data && (
             <>
               <hr />
