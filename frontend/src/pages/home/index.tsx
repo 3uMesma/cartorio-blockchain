@@ -1,12 +1,10 @@
 import React from 'react';
 import {Container} from "./style";
 
-import BlockchainImage from '../../assets/images/blockchain.png';
-
 const Home: React.FC = () => {
     return (
       <Container>
-        <section className='info-home'>
+        <section className='info-section'>
             <h1>O que é o NotaryChain?</h1>
             <p className='explaining-text'>
                 A proposta do projeto é ser uma aplicação web que simula um sistema de registro de 
@@ -28,7 +26,7 @@ const Home: React.FC = () => {
                 * Esse projeto faz parte da disciplina SSC0958 Blockchain e Criptomoedas. 
             </p>
 
-            <img src={BlockchainImage} alt="Imagem Ilustrativa Demonstrando uma cadeia Blockchain em tons azuis"/>
+            <img src="https://www.coopersystem.com.br/wp-content/uploads/2022/03/blockchain.jpg" alt="Imagem Ilustrativa Demonstrando uma cadeia Blockchain em tons azuis"/>
             <p className='ref-img'>https://cartorionobrasil.com.br/artigos/como-funcionara-a-blockchain-para-registro-de-imoveis/</p>
         </section>
       </Container>

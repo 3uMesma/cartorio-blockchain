@@ -6,7 +6,6 @@ export function DocVerificar() {
   const [arquivo, setArquivo] = useState<File | null>(null);
   const [status, setStatus] = useState<VerifyStatus | null>(null);
 
-  // COLOCAR A REAL URL DO BACKEND
   const API_URL = 'http://localhost:3000';
 
   // Calcula o hash SHA-256 de um arquivo no navegador

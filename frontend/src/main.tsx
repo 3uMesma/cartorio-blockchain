@@ -7,6 +7,7 @@ import Header from '../src/components/header';
 import Home from './pages/home';
 import { DocRegistrar } from './pages/upload-doc';
 import { DocVerificar } from './pages/verify-doc';
+import HowToUse from './pages/how-to-use';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/' element={<Home />} />
         <Route path='upload/' element={<DocRegistrar />} />
         <Route path='check/' element={<DocVerificar />} />
+        <Route path='how-to-use/' element={<HowToUse />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -6,7 +6,6 @@ export function DocRegistrar() {
   const [arquivo, setArquivo] = useState<File | null>(null);
   const [status, setStatus] = useState<UploadStatus | null>(null);
 
-  // COLOCAR A REAL URL DO BACKEND
   const API_URL = 'http://localhost:3000';
 
   // Seleção do Arquivo do Input
