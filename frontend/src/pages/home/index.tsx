@@ -12,12 +12,12 @@ const Home: React.FC = () => {
                 justamente isso, a função de um Notário. A ideia do projeto é modernizar os sistemas 
                 atuais de cartórios através da tecnologia Blockchain, pois, a partir dela, pode-se 
                 ter mais segurança, rapidez, flexibilidade e confiabilidade. Para simplificar o 
-                projeto, assume-se que o documento já foi assinado pelas partes interessadas e não 
+                projeto, assume-se que o documento ja foi assinado pelas partes interessadas e nao 
                 infringe nenhuma lei. 
             </p>
             <p className='explaining-text'>
                 As funções dessa site incluem a submissão de um arquivo na rede Blockchain, na aba 
-                'Subir Documento' e também a verificação da validade de um documento que já esteja 
+                'Subir Documento' e também a verificação da validade de um documento que ja esteja 
                 na Blockchain, na aba 'Validar Documento'. 
             </p>
             <p className='disclaimer'>

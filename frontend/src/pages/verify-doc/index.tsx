@@ -25,7 +25,7 @@ async function handleVerify(arquivo: File): Promise<any> {
   const result = await response.json();
 
   if (!response.ok) {
-    throw new Error(result.error || (response.status === 404 ? 'Documento não encontrado.' : 'Erro desconhecido.'));
+    throw new Error(result.error || (response.status === 404 ? 'Documento nao encontrado.' : 'Erro desconhecido.'));
   }
 
   return result; 

@@ -43,8 +43,10 @@ const crypto = __importStar(require("crypto"));
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
 require("dotenv/config");
+const cors_1 = __importDefault(require("cors"));
 // Configuração Inicial
 const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
 const port = 3000;
 // Configuração do Multer para upload em memória
 const storage = multer_1.default.memoryStorage();
@@ -100,8 +102,8 @@ app.post('/register', upload.single('documento'), async (req, res) => {
     }
     catch (error) {
         console.error(error);
-        if (error.message.includes("Erro: Documento já registrado.")) {
-            return res.status(409).send({ error: "Documento já registrado." });
+        if (error.message.includes("Erro: Documento ja registrado.")) {
+            return res.status(409).send({ error: "Documento ja registrado." });
         }
         res.status(500).send({ error: "Erro interno ao registrar o documento." });
     }
@@ -125,8 +127,8 @@ app.get('/verify/:hash', async (req, res) => {
     }
     catch (error) {
         console.error(error);
-        if (error.message.includes("Erro: Documento não encontrado.")) {
-            return res.status(404).send({ error: "Documento não encontrado.", hash: hash, isRegistered: false });
+        if (error.message.includes("Erro: Documento nao encontrado.")) {
+            return res.status(404).send({ error: "Documento nao encontrado.", hash: hash, isRegistered: false });
         }
         res.status(500).send({ error: "Erro interno ao verificar o documento." });
     }

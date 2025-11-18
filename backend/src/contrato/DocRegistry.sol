@@ -20,8 +20,8 @@ contract DocumentRegistry {
     );
 
     function registerDocument(bytes32 _hash) public {
-        // Verifica se o documento não foi registrado antes
-        require(documents[_hash].exists == false, "Erro: Documento já registrado.");
+        // Verifica se o documento nao foi registrado antes
+        require(documents[_hash].exists == false, "Erro: Documento ja registrado.");
 
         // Registra Documento
         documents[_hash] = Document({
@@ -39,7 +39,7 @@ contract DocumentRegistry {
         view
         returns (address owner, uint256 timestamp)
     {
-        require(documents[_hash].exists, "Erro: Documento não encontrado.");
+        require(documents[_hash].exists, "Erro: Documento nao encontrado.");
         return (documents[_hash].owner, documents[_hash].timestamp);
     }
 }

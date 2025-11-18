@@ -79,8 +79,8 @@ app.post('/register', upload.single('documento'), async (req, res) => {
 
     } catch (error: any) {
         console.error(error);
-        if (error.message.includes("Erro: Documento já registrado.")) {
-            return res.status(409).send({ error: "Documento já registrado." });
+        if (error.message.includes("Erro: Documento ja registrado.")) {
+            return res.status(409).send({ error: "Documento ja registrado." });
         }
         res.status(500).send({ error: "Erro interno ao registrar o documento." });
     }
@@ -108,8 +108,8 @@ app.get('/verify/:hash', async (req, res) => {
 
     } catch (error: any) {
         console.error(error);
-        if (error.message.includes("Erro: Documento não encontrado.")) {
-            return res.status(404).send({ error: "Documento não encontrado.", hash: hash, isRegistered: false });
+        if (error.message.includes("Erro: Documento nao encontrado.")) {
+            return res.status(404).send({ error: "Documento nao encontrado.", hash: hash, isRegistered: false });
         }
         res.status(500).send({ error: "Erro interno ao verificar o documento." });
     }

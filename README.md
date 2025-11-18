@@ -1,8 +1,8 @@
 # "Cartório" com Blockchain
 
-A proposta do projeto é ser uma aplicação web que simula um sistema de registro de documentos digitais utilizando um Smart Contract. O 'Notary' do nome representa justamente isso, a função de um Notário. A ideia do projeto é modernizar os sistemas atuais de cartórios através da tecnologia Blockchain, pois, a partir dela, pode-se ter mais segurança, rapidez, flexibilidade e confiabilidade. Para simplificar o projeto, assume-se que o documento já foi assinado pelas partes interessadas e não infringe nenhuma lei.
+A proposta do projeto é ser uma aplicação web que simula um sistema de registro de documentos digitais utilizando um Smart Contract. O 'Notary' do nome representa justamente isso, a função de um Notário. A ideia do projeto é modernizar os sistemas atuais de cartórios através da tecnologia Blockchain, pois, a partir dela, pode-se ter mais segurança, rapidez, flexibilidade e confiabilidade. Para simplificar o projeto, assume-se que o documento ja foi assinado pelas partes interessadas e nao infringe nenhuma lei.
 
-As funções dessa site incluem a submissão de um arquivo na rede Blockchain, na aba 'Subir Documento' e também a verificação da validade de um documento que já esteja na Blockchain, na aba 'Validar Documento'. 
+As funções dessa site incluem a submissão de um arquivo na rede Blockchain, na aba 'Subir Documento' e também a verificação da validade de um documento que ja esteja na Blockchain, na aba 'Validar Documento'. 
 
 ## Tecnologias usadas
 
