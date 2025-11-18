@@ -2,9 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     :root {
-        --cor-marrom-escuro: #51210D;
         --cor-marrom-main: #6E4334;
-        --cor-marrom-claro: #B59988;
+        --cor-marrom-claro: #b59988ff;
         --cor-branca: #F2F2F2;
         --cor-preta: #2D2D2D;
         --cor-cinza: #888888;
@@ -37,7 +36,7 @@ export default createGlobalStyle`
       }      
 
     body {
-        background-color: var(--cor-branco);
+        background-color: var(--cor-branca);
     }
 
     hr {
