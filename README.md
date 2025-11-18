@@ -30,6 +30,12 @@ As funções dessa site incluem a submissão de um arquivo na rede Blockchain, n
 
 Para rodar o projeto localmente são necessários alguns passos:
 
+### Passo 0 (Opicional): Instalar Dependências
+Abra um terminal na raiz da pasta backend e rode o seguinte comando para instalar as dependências do back
+```bash
+npm install
+```
+
 ### Passo 1: Rodar o Nó Blockchain
 Abra um terminal na raiz da pasta backend. Rode o nó local do Hardhat: 
 
@@ -39,13 +45,13 @@ npx hardhat node
 
 e deixe rodando.
 
+Para verificar, em outro terminal, também na pasta backend rode:
+```bash
+npx hardhat run scripts/deploy.ts --network localhost
+``` 
+
 ### Passo 2: Rodar o Servidor Backend
 Abra um segundo terminal, também na pasta backend. 
-
-(Caso seja a primeira vez rodando o projeto, instale as dependências:)
-```bash
-npm install
-```
 
 Compile o código:
 ```bash
