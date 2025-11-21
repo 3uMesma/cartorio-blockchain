@@ -77,3 +77,6 @@ Rode o servidor:
 npm run dev
 ```
 também deixe rodando. 
+
+## Organização dos Arquivos
+No projeto há duas pastas principais, frontend e backend. Na primeira está toda o desenvolvimento e configuração da interface enquanto que na segunda está a lógica do projeto. Dentro dessa pasta, os principais arquivos estão na pasta \src. Lá vai estar o contrato, assim como configurações da rede Blockchain. Para a assinatura do documento na rede foi usado um .env com minha private key disponível no MetaMask. 
